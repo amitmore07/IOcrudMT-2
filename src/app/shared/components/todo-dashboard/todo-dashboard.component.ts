@@ -35,6 +35,7 @@ export class TodoDashboardComponent implements OnInit {
 
 getNewTodo(todo : Itodo){
   this.todosArr.unshift(todo)
+  this._snackBar.openSnackBar(`The new student with ${todo.todoId} is created successfully!!`)
 }
 
 
