@@ -1,0 +1,25 @@
+
+<div class="card">
+    <div class="card-body">
+        <form #todoForm="ngForm" (ngSubmit)="onTodoSubmit()" >
+            <div class="form-group">
+                <label for="todoItem"><strong>TodoItem</strong></label>
+                <input  ngModel required name="todoItem" class="form-control" #todoItem="ngModel" type="text">
+                <div class="alert text-danger" *ngIf="todoItem.touched && todoItem.hasError('required')">
+                    <strong>
+                        TodoItem is required field!!
+                    </strong>
+                </div>
+            </div>
+
+            <div>
+                    <button *ngIf="!isInEditMode" mat-raised-button color="primary" class="w-100">Add Todo </button>
+                    <button
+                    (click)="onUpdate()"
+                    *ngIf="isInEditMode" type="button" mat-raised-button color="primary" class="w-100">Update Todo </button>
+
+             </div>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+
+
+<ng-container *ngIf="stdInfo.length >0; else noStudents ">
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sr.No</th>
+            <th>FullName</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Edit</th>  
+            <th>Remove</th>  
+        </tr>
+    </thead>
+    <tbody *ngFor="let t of stdInfo; let i = index tarckBy : trackById">
+        <tr>
+        <td>{{i+1}}</td>
+        <td>{{t.name}}</td>
+        <td>{{t.email}}</td>
+        <td>{{t.phone}}</td>
+        <td class="text-center"><button 
+            (click)="onEdit(t)"
+            mat-mini-fab color="primary">
+          <mat-icon>edit</mat-icon>
+        </button></td>
+        <td class="text-center"><button
+          (click)="onRemove(t.stdId)"
+          mat-mini-fab color="warn">
+          <mat-icon>delete</mat-icon>
+        </button></td>
+
+        </tr>
+    </tbody>
+</table>
+</ng-container>
+
+<ng-template #noStudents>
+    <strong class="bg-warning">
+        No Student List!!
+    </strong>
+</ng-template>

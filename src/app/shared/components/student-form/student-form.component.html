@@ -1,0 +1,49 @@
+<div class="card mt-4">
+    <div class="card-body">
+        <form #stdForm="ngForm" (ngSubmit)="stdSubmit()">
+   <div class="form-group">
+     <label for="name"
+    >FullName*</label>
+    <input 
+    ngModel
+    required
+    name="name"
+    #name="ngModel"
+    class="form-control"
+    type="text">
+    <div class="text-danger" *ngIf="name.touched && name.hasError('required')">
+        FullName is required field!! 
+    </div>
+   </div>
+
+   <div class="form-group">
+    <label for="email">Email*</label>
+    <input required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" ngModel name="email" #email="ngModel" type="text" class="form-control">
+    <div class="text-danger" *ngIf="email.touched && email.hasError('required')">
+        Email is required field!! 
+    </div>
+    <div class="text-danger" *ngIf="email.touched && email.hasError('pattern')">
+        Enter a valid email address! 
+    </div>
+   </div>
+
+   <div class="form-group">
+    <label for="phone">Contact*</label>
+    <input ngModel required pattern="^[6-9]\d{9}$" maxLength="10" #phone="ngModel" name="phone" type="text" class="form-control">
+    <div class="text-danger" *ngIf="phone.touched && phone.hasError('required')">
+        Contact is required field!! 
+    </div>
+    <div class="text-danger" *ngIf="phone.touched && phone.hasError('pattern')">
+        Enter valid 10-digit mobile number! 
+    </div>
+   </div>
+
+   <button *ngIf="!isInEditMode" mat-raised-button color="primary" class="w-100">Add Student</button>
+   <button 
+   (click)="onUpdate()"
+   *ngIf="isInEditMode" type="button" mat-raised-button color="primary" class="w-100">Update Student</button>
+
+
+</form>
+    </div>
+</div>

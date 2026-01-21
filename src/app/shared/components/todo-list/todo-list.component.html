@@ -1,0 +1,32 @@
+
+
+<ng-container *ngIf="TodosArr.length > 0 ; else noTodos ">
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let t of TodosArr; trackBy : trackById">
+            <strong>
+                {{t.todoItem}}
+            </strong>
+
+            <div>
+                <button
+                (click)="onEdit(t)"
+                mat-mini-fab color="primary" class="mr-3" >
+                    <mat-icon>edit</mat-icon>
+                 </button>
+
+                 <button 
+                 (click)="onRemove(t)"
+                 mat-mini-fab color="warn" >
+                    <mat-icon>delete</mat-icon>
+                 </button>
+            </div>
+        </li>
+    </ul>
+</ng-container>
+
+
+<ng-template #noTodos>
+    <strong class=" alert bg-warning">
+        No Todos!!
+    </strong>
+</ng-template>

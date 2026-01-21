@@ -1,0 +1,21 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            
+            <app-student-form
+             (emitNewStd)="getNewStd($event)"
+             (emitUpadatedStd)="getUpdatedStd($event)"
+             [editStdObj]="editId"
+             ></app-student-form>
+        </div>
+
+        <div class="col-md-8 mt-4">
+            <app-student-list 
+            [stdInfo]="stdArr"
+            (emitRemoveId)="getRemoveId($event)"
+            (emitEditId)="getEditstd($event)"
+            ></app-student-list>
+        </div>
+    </div>
+</div>

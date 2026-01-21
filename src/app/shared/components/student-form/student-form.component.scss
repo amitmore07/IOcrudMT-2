@@ -1,0 +1,13 @@
+
+
+
+input.ng-invalid.ng-touched {
+  border-color: #dc3545;
+}
+
+
+input.ng-invalid.ng-touched + small,
+input.ng-invalid.ng-touched ~ label,
+label:has(+ input.ng-invalid.ng-touched) {
+  color: #dc3545;
+}
